@@ -8,7 +8,7 @@ class FonctionDrawing:
         self.fonction = fonction # Fonction a dessiner 
         self.interval = interval  # Intervall sur laquel dessiner la fonction
         self.iteration = iteration # Points de construction 
-        self.color = color  # Couleur de la tortue 
+        self.color = color  # Couleur du crayon
         self.coo = coo # Coordonné de depart 
         self.drawFonction()
     
@@ -33,11 +33,11 @@ class FonctionDrawing:
         """Permet de recuperer tout les points de construction de la fonction"""
         turtle.penup()
         turtle.goto(self.coo[0], self.coo[1]) # La tortue va à ses coordonné
-        turtle.color = self.color 
+        turtle.pencolor(self.color)
         debutInt = self.interval[0] 
         while debutInt < self.interval[1]: # Tant que l'on n'as pas dessiner toute la fonction 
             debutInt += self.iteration # On itere 
             self.drawAccroissement(1, (self.fonction(debutInt) - self.fonction(debutInt - self.iteration))/self.iteration)
             # On calcule le taux de variation 
 
-# exemple = FonctionDrawing(math.exp, [0, 3], 0.01, "red", (0, 0))
+# exemple = FonctionDrawing(math.exp, [0, 3], 0.01, "blue", (0, 0))
